@@ -24,11 +24,42 @@
                 document.body.append(list);
             }
 
-            fetch("http://localhost:3000/")
+            fetch("http://localhost:3000/users/r")
                 .then((resp) => resp.json())
                 .then((response) => {
-                    renderCars(response);
+                    console.log(response);
+                    // renderCars(response);
                 })
+            fetch("http://localhost:3000/users/")
+                .then((resp) => resp.json())
+                .then((response) => {
+                    console.log(response);
+                    // renderCars(response);
+                })
+
+            const name = `Tomas`;
+
+            fetch(`http://localhost:3000/users/
+                    `, {
+                method: `POST`,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: `Tomas`
+                })
+            })
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                })
+                .then(() => {
+                    console.log(name);
+                })
+                // .catch((err) => {
+                //     console.warn(err);
+                // });
         </script>
     </body>
 
