@@ -58,10 +58,10 @@ app.get(`/users/:firstLetter`, (req, res) => {
 })
 
 app.post('/users/', (req, res) => {
-    res.json({ name: req.body })
     let newUser = req.body.name;
     names.push(newUser);
     console.log(names);
+    res.send(names);
 })
 
 app.listen(port, () => {
