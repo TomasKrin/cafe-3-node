@@ -60,7 +60,7 @@ app.post("/cars", (req, res) => {
     console.log(newCar);
     if (newCar.make && newCar.model && newCar.color) {
         cars.push(newCar);
-        res.send(newCar);
+        res.send(cars);
     } else {
         res.status(400).send({
             error: "Invalid request"
