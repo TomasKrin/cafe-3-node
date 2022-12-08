@@ -33,13 +33,16 @@ const cars = [
     }
 ];
 
+const editableCars = cars.map((arr) => arr);
+console.log(editableCars);
+
 app.get("/cars", (req, res) => {
-    res.send(cars);
+    res.send(editableCars);
 });
 
 app.get("/cars/:id", (req, res) => {
     const id = Number(req.params.id); //arba +req.params.id;
-    const car = cars.find(car => car.id === id);
+    const car = editableCars.find(car => car.id === id);
 
     if (car) {
         res.send(car);
@@ -59,8 +62,8 @@ app.post("/cars", (req, res) => {
     const newCar = { id: Date.now(), ...car };
     console.log(newCar);
     if (newCar.make && newCar.model && newCar.color) {
-        cars.push(newCar);
-        res.send(cars);
+        editableCars.push(newCar);
+        res.send(editableCars);
     } else {
         res.status(400).send({
             error: "Invalid request"
@@ -71,7 +74,7 @@ app.post("/cars", (req, res) => {
 
 app.put("/cars/:id", (req, res) => {
     const id = Number(req.params.id); //arba +req.params.id;
-    const car = cars.find(car => car.id === id);
+    const car = editableCars.find(car => car.id === id);
 
     if (car) {
         res.send(car);
@@ -101,14 +104,14 @@ app.put("/cars/:id", (req, res) => {
 
 app.delete("/cars/:id", (req, res) => {
     const id = Number(req.params.id); //arba +req.params.id;
-    const car = cars.find(car => car.id === id);
+    const car = editableCars.find(car => car.id === id);
 
     if (car) {
-        const carId = cars.indexOf(car);
-        cars.splice(carId, 1);
+        const carId = editableCars.indexOf(car);
+        editableCars.splice(carId, 1);
         console.log(`carId`, carId);
-        console.log(`cars`, cars);
-        res.send(cars);
+        console.log(`cars`, editableCars);
+        res.send(editableCars);
 
     } else {
         res.status(404).send({
