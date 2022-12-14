@@ -17,7 +17,7 @@ app.get('/posts', async (req, res) => {
     const con = await client.connect(); // prisijungimas prie DB
     if (req.query.title) {
       const data = await con.db('First').collection('posts').find({ title: req.query.title }).toArray();
-      console.log('title', data);
+      res.send(data);
     } else {
       const data = await con.db('First').collection('posts').find().toArray(); // duomenu istraukimas
       res.send(data);
