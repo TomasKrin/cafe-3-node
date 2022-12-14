@@ -14,15 +14,15 @@ app.use(express.json());
 
 app.get('/posts', async (req, res) => {
   try {
-    const con = await client.connect(); // prisijungimas prie DB
+    const con = await client.connect();
     if (req.query.title) {
       const data = await con.db('First').collection('posts').find({ title: req.query.title }).toArray();
       res.send(data);
     } else {
-      const data = await con.db('First').collection('posts').find().toArray(); // duomenu istraukimas
+      const data = await con.db('First').collection('posts').find().toArray();
       res.send(data);
     }
-    await con.close(); // prisijungimo isjugimas
+    await con.close();
   } catch (error) {
     res.status(500).send({ error });
   }
@@ -31,10 +31,9 @@ app.get('/posts', async (req, res) => {
 app.get('/posts/:id', async (req, res) => {
   try {
     const id = Number(req.params.id);
-    const con = await client.connect(); // prisijungimas prie DB
-    //   res.send({ message: 'works' });
-    const data = await con.db('First').collection('posts').findOne(id).toArray(); // duomenu istraukimas
-    await con.close(); // prisijungimo isjugimas
+    const con = await client.connect();
+    const data = await con.db('First').collection('posts').findOne(id).toArray();
+    await con.close();
     res.send(data);
   } catch (error) {
     res.status(500).send({ error });
