@@ -30,13 +30,19 @@ app.get('/memberships', async (req, res) => {
 
 app.post('/memberships', async (req, res) => {
   try {
-    const con = await client.connect();
-    const data = await con
-      .db('projektas')
-      .collection('memberships')
-      .insertOne({ name: req.body.name, price: req.body.price, description: req.body.description });
-    await con.close();
-    res.send(data);
+    if (req.body.name && req.body.price && req.body.description) {
+      const con = await client.connect();
+      const data = await con
+        .db('projektas')
+        .collection('memberships')
+        .insertOne({
+          name: req.body.name,
+          price: req.body.price,
+          description: req.body.description,
+        });
+      await con.close();
+      res.send(data);
+    }
   } catch (error) {
     res.status(500).send(error);
   }
@@ -44,7 +50,6 @@ app.post('/memberships', async (req, res) => {
 
 app.post('/users', async (req, res) => {
   try {
-    console.log('users', req.body);
     if (req.body.name && req.body.surname && req.body.email && req.body.membership_id) {
       const con = await client.connect();
       const data = await con
@@ -176,7 +181,6 @@ app.get('/users', async (req, res) => {
       ])
       .toArray();
     await con.close();
-    console.log(data);
     res.send(data);
   } catch (error) {
     res.status(500).send({ error });
