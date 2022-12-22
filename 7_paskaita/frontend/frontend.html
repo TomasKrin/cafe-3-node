@@ -5,30 +5,28 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Pets</title>
+        <script defer src="frontend.js"></script>
         <link rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-        <script defer src="frontend.js"></script>
     </head>
 
     <body>
-        <nav><a href="add.html">Add pet</a></nav>
-        <main>
-            <h1>Pets</h1>
-            <div class="btn-div">
-                <button id="dog" class="btn">Dog</button>
-                <button id="cat" class="btn">Cat</button>
-                <button id="bunny" class="btn">Bunny</button>
-            </div>
-            <!-- <table>
-                <tr>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th id="age">Age (asc)</th>
-                </tr>
-                <div id="output"></div>
-            </table> -->
-        </main>
+        <button id="addBtn">Add pet</button>
+        <h1>Pets</h1>
+        <button id="btnDog">Dog</button>
+        <button id="btnCat">Cat</button>
+        <button id="btnBunny">Bunny</button>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Age <button id="asc">Asc</button></th>
+            </tr>
+        </table>
+        <table id="table">
+
+        </table>
     </body>
 
 </html>

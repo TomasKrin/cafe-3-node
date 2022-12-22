@@ -1,60 +1,133 @@
-// eslint-disable-next-line
-const dogBtn = document.querySelector('#dog');
-// eslint-disable-next-line
-const catBtn = document.querySelector('#cat');
-// eslint-disable-next-line
-const bunnyBtn = document.querySelector('#bunny');
-// eslint-disable-next-line
-const age = document.querySelector(`#age`);
-const table = document.createElement('table');
-const active = true;
+const addBtn = document.querySelector('#addBtn');
+const btnDog = document.querySelector('#btnDog');
+const btnCat = document.querySelector('#btnCat');
+const btnBunny = document.querySelector('#btnBunny');
+const table = document.querySelector('#table');
+const asc = document.querySelector('#asc');
 
-fetch('http://localhost:3000/pets')
-  .then((response) => response.json())
-  .then((data) => {
-    const pets = data;
-    //   pets.forEach((pet) => {
-
-    //     drawTable(pet, type);
-    //   });
-    const sortedPets = pets.sort((petType) => petType === type);
-
-    sortedPets.forEach((pet) => {
-      drawTable(pet, type);
-    });
-  });
-
-const drawTable = (pet, type) => {
-  if (pet.type.toLowerCase() === type) {
+const draw = (data) => {
+  console.log(data);
+  data.forEach((element) => {
     const tr = document.createElement('tr');
-    const td1 = document.createElement('td');
-    const td2 = document.createElement('td');
-    const td3 = document.createElement('td');
-    td1.textContent = pet.name;
-    td2.textContent = pet.type;
-    td3.textContent = pet.age;
 
-    const main = document.querySelector('main');
-    main.appendChild(table);
+    const name = document.createElement('td');
+    name.textContent = element.name;
+
+    const type = document.createElement('td');
+    type.textContent = element.type;
+
+    const age = document.createElement('td');
+    age.textContent = element.age;
+
+    tr.appendChild(name);
+    tr.appendChild(type);
+    tr.appendChild(age);
     table.appendChild(tr);
-    tr.appendChild(td1);
-    tr.appendChild(td2);
-    tr.appendChild(td3);
-  }
+  });
 };
 
-// const btnEvent = (btn, type) => {
-// //   btn.addEventListener('click', fetchGet(btn, type));
-//   fetchGet(btn, type);
-//   btn.removeEventListener('click', btnEvent);
-// };
+const ascPost = (x) => {
+  fetch(`http://localhost:3000/byoldest${x}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+    })
+    .then((result) => {
+      console.log(result);
+      table.innerHTML = '';
+      draw(result);
+      return result.data;
+    });
+};
 
-// dogBtn.addEventListener('click', () => {
-//   btnEvent(dogBtn, 'dog');
-// });
-// catBtn.addEventListener('click', () => {
-//   btnEvent(catBtn, 'cat');
-// });
-// bunnyBtn.addEventListener('click', () => {
-//   btnEvent(bunnyBtn, 'bunny');
-// });
+btnDog.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (btnDog.style.backgroundColor === 'purple') {
+    btnDog.style.backgroundColor = '';
+    ascPost('/');
+  } else {
+    btnDog.style.backgroundColor = 'purple';
+    if (
+      btnCat.style.backgroundColor === 'purple'
+      || btnBunny.style.backgroundColor === 'purple'
+    ) {
+      btnCat.style.backgroundColor = '';
+      btnBunny.style.backgroundColor = '';
+    }
+    ascPost('?type=dog');
+  }
+});
+
+btnCat.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (btnCat.style.backgroundColor === 'purple') {
+    btnCat.style.backgroundColor = '';
+    ascPost('/');
+  } else {
+    btnCat.style.backgroundColor = 'purple';
+    if (
+      btnDog.style.backgroundColor === 'purple'
+      || btnBunny.style.backgroundColor === 'purple'
+    ) {
+      btnDog.style.backgroundColor = '';
+      btnBunny.style.backgroundColor = '';
+    }
+    ascPost('?type=cat');
+  }
+});
+
+btnBunny.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (btnBunny.style.backgroundColor === 'purple') {
+    btnBunny.style.backgroundColor = '';
+    ascPost('/');
+  } else {
+    btnBunny.style.backgroundColor = 'purple';
+    if (
+      btnCat.style.backgroundColor === 'purple'
+      || btnDog.style.backgroundColor === 'purple'
+    ) {
+      btnCat.style.backgroundColor = '';
+      btnDog.style.backgroundColor = '';
+    }
+    ascPost('?type=bunny');
+  }
+});
+
+addBtn.addEventListener('click', () => {
+  window.location.href = 'add.html';
+});
+
+fetch('http://localhost:3000/pets', {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+})
+  .then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
+  })
+  .then((result) => {
+    console.log(result);
+    draw(result);
+    return result.data;
+  });
+
+asc.addEventListener('click', (e) => {
+  // e.preventDefault();
+  if (asc.textContent === 'Asc') {
+    ascPost('?sort=asc');
+    asc.textContent = 'Dsc';
+  } else {
+    ascPost('?sort=dsc');
+    asc.textContent = 'Asc';
+  }
+});
