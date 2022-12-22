@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Membership Management</title>
+        <script defer src="users.js"></script>
+        <link rel="stylesheet" href="users.css">
+        <script src="https://kit.fontawesome.com/e07c3ed553.js"
+            crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <nav>
+            <ul>
+                <li><a href="memberships.html"
+                        id="membershipsPage">Memberships</a></li>
+                <li><a href="users.html" id="userPage">Users</a></li>
+            </ul>
+        </nav>
+        <main>
+            <header>
+                <div class="header">
+                    <h1>User Management</h1>
+                    <button id="addNewUser"><span>&plus;</span> New
+                        User</button>
+                </div>
+                <p>Sorting By Name: <span id="order"><span
+                            id="changeOrder"></span> <i
+                            class="fa-solid fa-up-down"></i></span></p>
+            </header>
+            <section id="userList"></section>
+        </main>
+        <footer>
+            <p>Copyright &copy;2022 Membership Manager Tomas</p>
+        </footer>
+    </body>
+
+</html>

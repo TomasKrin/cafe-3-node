@@ -1,0 +1,156 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #edf2f6;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.8em;
+
+    nav {
+        background-color: white;
+
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 0;
+            padding: 10px;
+
+            a {
+                text-decoration: none;
+            }
+
+            #membershipsPage {
+                color: #4169E1;
+            }
+
+            #userPage {
+                color: grey;
+            }
+        }
+    }
+
+    main {
+        padding: 30px;
+
+        header {
+            margin-bottom: 10px;
+
+            .header {
+                display: flex;
+                gap: 350px;
+                align-items: baseline;
+
+                button {
+                    background-color: #4169E1;
+                    color: white;
+                    border: none;
+                    width: 160px;
+                    border-radius: 5px;
+                    padding: 10px;
+                    cursor: pointer;
+
+                    span {
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+
+        #membershipList {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        #addMembership {
+            display: flex;
+            flex-direction: column;
+            width: 90vw;
+            background-color: white;
+            margin: 0 auto;
+
+            form {
+                margin: 50px 300px;
+                width: 600px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .row {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: baseline;
+                    position: relative;
+                    gap: 30px;
+
+                    label {
+                        width: 150px;
+                        font-weight: 700;
+                        text-align: right;
+                    }
+
+                    input,
+                    textarea {
+                        width: 450px;
+                        padding: 15px;
+                        margin: 4px;
+                        box-sizing: border-box;
+                        background-color: #fafafa;
+                        border: 0;
+                        box-shadow: 1px 1.5px 1px rgba(118, 118, 118, 0.352);
+                        transition: .3s box-shadow;
+                        border-radius: 5px;
+
+                        &:hover {
+                            box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+                        }
+                    }
+
+                    #price {
+                        padding: 15px;
+                        margin: 4px;
+                        box-sizing: border-box;
+                        padding-left: 60px;
+                    }
+
+                    i {
+                        position: absolute;
+                        left: 180px;
+                        top: 10px;
+                        padding: 10px 10px;
+                        color: black;
+                    }
+                }
+
+                .btnDiv {
+                    margin: 0 250px;
+                    display: flex;
+                    gap: 20px;
+
+                    button {
+                        white-space: nowrap;
+                        padding: 10px 20px;
+                        border: none;
+                        border-radius: 5px;
+                        font-weight: 700;
+                    }
+
+                    .add {
+                        background-color: #4169E1;
+                        color: white;
+                    }
+                }
+
+
+            }
+
+        }
+    }
+
+    footer {
+        display: flex;
+        position: relative;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Membership Management</title>
+        <script defer src="addmemb.js"></script>
+        <link rel="stylesheet" href="memberships.css">
+        <script src="https://kit.fontawesome.com/e07c3ed553.js"
+            crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <nav>
+            <ul>
+                <li><a href="memberships.html"
+                        id="membershipsPage">Memberships</a></li>
+                <li><a href="users.html" id="userPage">Users</a></li>
+            </ul>
+        </nav>
+        <main>
+            <header>
+                <h1>Create Membership</h1>
+            </header>
+            <section id="addMembership">
+                <form>
+                    <div class="row">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name"
+                            placeholder="Name">
+                    </div>
+                    <div class="row">
+                        <label for="price"> Membership Price</label>
+                        <i class="fa-solid fa-dollar-sign"
+                            aria-hidden="true"></i>
+                        <input type="number" name="price" id="price"
+                            placeholder="Membership Price">
+                    </div>
+                    <div class="row">
+                        <label for="description">Description</label>
+                        <textarea name="description" id="description" cols="30"
+                            rows="10"></textarea>
+                    </div>
+                    <div class="btnDiv">
+                        <button>Cancel</button>
+                        <button type="submit" class="add">New
+                            Membership</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+        <footer>
+            <p>Copyright &copy;2022 Membership Manager Tomas</p>
+        </footer>
+    </body>
+
+</html>

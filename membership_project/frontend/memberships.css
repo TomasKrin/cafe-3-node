@@ -1,0 +1,131 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #edf2f6;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 0.8em;
+}
+body nav {
+  background-color: white;
+}
+body nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 0;
+  padding: 10px;
+}
+body nav ul a {
+  text-decoration: none;
+}
+body nav ul #membershipsPage {
+  color: #4169E1;
+}
+body nav ul #userPage {
+  color: grey;
+}
+body main {
+  padding: 30px;
+}
+body main header {
+  margin-bottom: 10px;
+}
+body main header .header {
+  display: flex;
+  gap: 350px;
+  align-items: baseline;
+}
+body main header .header button {
+  background-color: #4169E1;
+  color: white;
+  border: none;
+  width: 160px;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+body main header .header button span {
+  margin-right: 10px;
+}
+body main #membershipList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+body main #addMembership {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  background-color: white;
+  margin: 0 auto;
+}
+body main #addMembership form {
+  margin: 50px 300px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+body main #addMembership form .row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  position: relative;
+  gap: 30px;
+}
+body main #addMembership form .row label {
+  width: 150px;
+  font-weight: 700;
+  text-align: right;
+}
+body main #addMembership form .row input,
+body main #addMembership form .row textarea {
+  width: 450px;
+  padding: 15px;
+  margin: 4px;
+  box-sizing: border-box;
+  background-color: #fafafa;
+  border: 0;
+  box-shadow: 1px 1.5px 1px rgba(118, 118, 118, 0.352);
+  transition: 0.3s box-shadow;
+  border-radius: 5px;
+}
+body main #addMembership form .row input:hover,
+body main #addMembership form .row textarea:hover {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+body main #addMembership form .row #price {
+  padding: 15px;
+  margin: 4px;
+  box-sizing: border-box;
+  padding-left: 60px;
+}
+body main #addMembership form .row i {
+  position: absolute;
+  left: 180px;
+  top: 10px;
+  padding: 10px 10px;
+  color: black;
+}
+body main #addMembership form .btnDiv {
+  margin: 0 250px;
+  display: flex;
+  gap: 20px;
+}
+body main #addMembership form .btnDiv button {
+  white-space: nowrap;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 700;
+}
+body main #addMembership form .btnDiv .add {
+  background-color: #4169E1;
+  color: white;
+}
+body footer {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}/*# sourceMappingURL=memberships.css.map */
