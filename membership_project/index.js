@@ -37,7 +37,7 @@ app.post('/memberships', async (req, res) => {
         .collection('memberships')
         .insertOne({
           name: req.body.name,
-          price: req.body.price,
+          price: Number(req.body.price),
           description: req.body.description,
         });
       await con.close();
