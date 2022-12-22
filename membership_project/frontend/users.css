@@ -23,7 +23,7 @@ body nav ul #membershipsPage {
   color: grey;
 }
 body nav ul #userPage {
-  color: #4169E1;
+  color: #6b7de3;
 }
 body main {
   padding: 30px;
@@ -41,7 +41,7 @@ body main header .header {
   justify-content: space-between;
 }
 body main header .header button {
-  background-color: #4169E1;
+  background-color: #6b7de3;
   color: white;
   border: none;
   width: 130px;
@@ -61,7 +61,7 @@ body main header p span {
   cursor: pointer;
 }
 body main header p span i {
-  color: #4169E1;
+  color: #6b7de3;
 }
 body main #userList {
   display: grid;
@@ -120,7 +120,7 @@ body main #addUser form .btnDiv button {
   margin-left: 10px;
 }
 body main #addUser form .btnDiv .add {
-  background-color: #4169E1;
+  background-color: #6b7de3;
   color: white;
 }
 body footer {

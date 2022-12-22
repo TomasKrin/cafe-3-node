@@ -20,8 +20,8 @@ const drawUserCards = (name, surname, email, membership) => {
   p1.textContent = 'Email Adress: ';
   p2.textContent = 'Membership: ';
 
-  span1.style.color = '#4169E1';
-  span2.style.color = '#4169E1';
+  span1.style.color = '#6b7de3';
+  span2.style.color = '#6b7de3';
   container.style.backgroundColor = 'white';
   container.style.margin = '10px';
   container.style.display = 'flex';
